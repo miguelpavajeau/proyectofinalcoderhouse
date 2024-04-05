@@ -2,6 +2,7 @@ package com.coderhouse.proyecto.entidades;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,10 +10,10 @@ import java.util.List;
 @Data
 @Table(name = "pelicula")
 @Entity
-class Pelicula {
+public class Pelicula {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     private String titulo;
     private String genero;

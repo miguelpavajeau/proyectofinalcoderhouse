@@ -9,10 +9,10 @@ import java.util.List;
 @Table(name = "cliente")
 @Entity
 @Data
-class Cliente {
+public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     private String nombre;
     private String direccion;
@@ -40,3 +40,4 @@ class Cliente {
         pelicula.setDisponible(true);
     }
 }
+
