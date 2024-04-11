@@ -12,7 +12,11 @@ import java.util.List;
 @RequestMapping("/peliculas")
 public class PeliculaController {
 
-    private PeliculaService peliculaService;
+    private final PeliculaService peliculaService;
+
+    public PeliculaController(PeliculaService peliculaService) {
+        this.peliculaService = peliculaService;
+    }
 
     //Listar peliculas
     @GetMapping(value = "/")
@@ -42,7 +46,7 @@ public class PeliculaController {
 
     //Agregar pelicula
     @PostMapping(value = "/agregar")
-    public ResponseEntity<Pelicula> agregarPelicula(Pelicula pelicula) {
+    public ResponseEntity<Pelicula> agregarPelicula(@RequestBody Pelicula pelicula) {
         Pelicula peliculaGuardada = peliculaService.agregarPelicula(pelicula);
         return new ResponseEntity<>(peliculaGuardada, HttpStatus.CREATED); // Codigo 201
     }
